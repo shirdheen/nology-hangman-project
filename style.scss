@@ -75,7 +75,7 @@ main {
     width: 60%;
   }
   &__image {
-    height: 100%;
+    height: max-content;
     width: 40%;
     border: 2px solid black;
   }

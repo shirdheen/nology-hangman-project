@@ -73,7 +73,7 @@ main {
   width: 60%;
 }
 .game__image {
-  height: 100%;
+  height: max-content;
   width: 40%;
   border: 2px solid black;
 }
