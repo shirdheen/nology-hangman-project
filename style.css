@@ -1,10 +1,18 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .game__heading {
   font-family: "Courier New", Courier, monospace;
   color: white;
   background-color: black;
-  font-size: 4em;
+  font-size: 10em;
   text-align: center;
   animation: fadeIn 2s ease-in-out;
+  margin: 0;
+  margin-bottom: 200px;
 }
 @keyframes fadeIn {
   0% {
@@ -13,6 +21,77 @@
   100% {
     opacity: 1;
   }
+}
+.game__button--big {
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 5em;
+  font-weight: bold;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.game__button--big:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.game__button--alphabet {
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 5em;
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.game__button--alphabet:hover {
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+.game__word {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+}
+.game__word--underscores {
+  padding: 10px;
+}
+.game__container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin-top: 60px;
+  padding: 30px;
+  width: 60%;
+}
+.game__image {
+  height: 100%;
+  width: 40%;
+  border: 2px solid black;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#alphabet-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 40%;
 }
 
 /*# sourceMappingURL=style.css.map */

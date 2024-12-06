@@ -12,22 +12,31 @@ console.log(selectedWordArr);
 const selectedWordArrUnderscores = selectedWordArr.map((letter) => "_");
 console.log(selectedWordArrUnderscores);
 
-// When play button is clicked ...
-const playButton = document.querySelector(".game__button");
+// Creating an alphabet array for buttons
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+// Getting classes and IDs from HTML
+const playButton = document.querySelector(".game__button--big");
 console.log(playButton);
 
 const wordDiv = document.querySelector(".game__word");
 console.log(wordDiv);
 
-const imageContainer = document.querySelector(".game__image-container");
-console.log(imageContainer);
+const gameContainer = document.querySelector(".game__container");
+console.log(gameContainer);
 
+// When play button is clicked ...
 playButton.addEventListener("click", (event) => {
   console.log("Play button clicked");
   event.preventDefault();
+
+  //Hides the play button after clicking on it
+  playButton.classList.add("hidden");
+  console.log("Play button hidden");
+
   // Clear the divs in case it already has content
   wordDiv.innerHTML = "";
-  imageContainer.innerHTML = "";
+  gameContainer.innerHTML = "";
 
   selectedWordArrUnderscores.forEach((underscore) => {
     const span = document.createElement("span");
@@ -40,6 +49,21 @@ playButton.addEventListener("click", (event) => {
   const img0 = document.createElement("img");
   img0.src = "./assets/img/h-0.jpg";
   img0.className = "game__image";
-  imageContainer.appendChild(img0);
+  gameContainer.appendChild(img0);
   console.log("Starter image added");
+
+  // Creating the alphabet button container dynamically
+  const alphabetContainer = document.createElement("div");
+  alphabetContainer.id = "alphabet-container";
+  gameContainer.appendChild(alphabetContainer);
+  console.log("Alphabet button container added");
+
+  // Creating buttons for letters
+  alphabet.split("").forEach((letter) => {
+    const alphButton = document.createElement("button");
+    alphButton.textContent = letter;
+    alphButton.className = "game__button--alphabet";
+    alphabetContainer.appendChild(alphButton);
+    console.log("Alphabet buttons added to alphabet container");
+  });
 });
