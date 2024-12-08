@@ -39,6 +39,24 @@ main {
   color: white;
   transition: all 0.3s ease-in-out;
 }
+.game__button--small {
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+.game__button--small:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
 .game__button--alphabet {
   border: 2px solid black;
   border-radius: 10px;
@@ -46,6 +64,7 @@ main {
   font-size: 5em;
   height: 100px;
   width: 100px;
+  margin: 10px;
   background-color: black;
   color: white;
   cursor: pointer;
@@ -54,6 +73,11 @@ main {
   background-color: white;
   color: black;
   transition: all 0.3s ease-in-out;
+}
+.game__button--alphabet:disabled {
+  background-color: darkgray;
+  color: white;
+  cursor: not-allowed;
 }
 .game__word {
   font-family: "Courier New", Courier, monospace;
@@ -70,12 +94,45 @@ main {
   flex-direction: row;
   margin-top: 60px;
   padding: 30px;
-  width: 60%;
+  width: 80%;
 }
 .game__image {
-  height: max-content;
+  height: 600px;
   width: 40%;
+  object-fit: contain;
   border: 2px solid black;
+  padding: 20px;
+}
+.game__message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 2em;
+  font-size: 8em;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.game__message--win {
+  color: green;
+  background-color: #d4f4dd;
+  border: 2px solid green;
+}
+.game__message--lose {
+  color: red;
+  background-color: #f8d7da;
+  border: 2px solid red;
+}
+.game__message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-wrapper {
@@ -92,6 +149,16 @@ main {
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 40%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 /*# sourceMappingURL=style.css.map */
