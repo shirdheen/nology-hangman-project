@@ -43,7 +43,7 @@ main {
   border: 2px solid black;
   border-radius: 10px;
   font-family: "Courier New", Courier, monospace;
-  font-size: 2em;
+  font-size: 4em;
   font-weight: bold;
   background-color: white;
   padding: 20px;
@@ -104,19 +104,10 @@ main {
   padding: 20px;
 }
 .game__message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-family: "Courier New", Courier, monospace;
-  font-weight: 2em;
-  font-size: 8em;
+  font-size: 6em;
   text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  margin-bottom: 20px;
 }
 .game__message--win {
   color: green;
@@ -129,10 +120,18 @@ main {
   border: 2px solid red;
 }
 .game__message-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-color: darkgray;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .button-wrapper {
