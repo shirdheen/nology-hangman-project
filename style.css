@@ -8,11 +8,11 @@ main {
   font-family: "Courier New", Courier, monospace;
   color: white;
   background-color: black;
-  font-size: 10em;
+  font-size: 6em;
   text-align: center;
   animation: fadeIn 2s ease-in-out;
   margin: 0;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 }
 @keyframes fadeIn {
   0% {
@@ -62,8 +62,8 @@ main {
   border-radius: 10px;
   font-family: "Courier New", Courier, monospace;
   font-size: 2em;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   margin: 10px;
   background-color: black;
   color: white;
@@ -97,7 +97,7 @@ main {
   width: 80%;
 }
 .game__image {
-  height: 600px;
+  height: 300px;
   width: 40%;
   object-fit: contain;
   border: 2px solid black;
