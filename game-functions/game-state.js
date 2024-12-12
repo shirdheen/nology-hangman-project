@@ -3,6 +3,7 @@ import {
   selectedWordArrUnderscores,
 } from "./word-selection.js";
 import { starterImage } from "./image-mgmt.js";
+import { gameState } from "../script.js";
 
 export function initialiseGame(wordDiv, gameContainer, handleLetterGuess) {
   console.log("Initialising game...");
@@ -44,10 +45,7 @@ export function initialiseGame(wordDiv, gameContainer, handleLetterGuess) {
     alphButton.className = "game__button--alphabet";
     alphButton.addEventListener("click", () => {
       console.log(`You clicked: ${letter}`);
-      console.log(
-        "Invoking handleLetterGuess with letter and button:",
-        handleLetterGuess
-      );
+      console.log("Invoking handleLetterGuess with letter and button");
       handleLetterGuess(letter, alphButton);
     });
     alphabetContainer.appendChild(alphButton);
@@ -61,8 +59,7 @@ export function resetGame(
   gameContainer,
   handleLetterGuess,
   overlay,
-  messageDiv,
-  attempts
+  messageDiv
 ) {
   // Clear overlay and message
   overlay = document.querySelector(".overlay");
@@ -73,10 +70,15 @@ export function resetGame(
   if (messageDiv) {
     messageDiv.remove();
   }
+  const alphabetContainer = document.querySelector("#alphabet-container");
+  if (alphabetContainer) {
+    alphabetContainer.remove(); // Remove old alphabet buttons
+  }
+
   // Reset game
   console.log("Resetting attempts...");
-  attempts = 0;
-  console.log("Attempts reset to:", attempts);
+  gameState.attempts = 0;
+  console.log("Attempts reset to:", gameState.attempts);
   // Initialise game again
   initialiseGame(wordDiv, gameContainer, handleLetterGuess);
   console.log("Game has been reset");

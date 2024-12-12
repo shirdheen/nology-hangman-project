@@ -1,12 +1,12 @@
 import { resetGame } from "./game-state.js";
+import { gameState } from "../script.js";
 
 // Function to check if the player has won
 export function playerWin(
   selectedWordArrUnderscores,
   wordDiv,
   gameContainer,
-  handleLetterGuess,
-  attempts
+  handleLetterGuess
 ) {
   if (!selectedWordArrUnderscores.includes("_")) {
     console.log("You win!");
@@ -20,10 +20,7 @@ export function playerWin(
     const playAgainButton = createPlayAgainButton(
       wordDiv,
       gameContainer,
-      handleLetterGuess,
-      null,
-      null,
-      attempts
+      handleLetterGuess
     );
 
     messageDiv.appendChild(message);
@@ -34,13 +31,12 @@ export function playerWin(
 
 // Function to check if the player has lost
 export function playerLose(
-  attempts,
   selectedWord,
   wordDiv,
   gameContainer,
   handleLetterGuess
 ) {
-  if (attempts >= 10) {
+  if (gameState.attempts >= 10) {
     console.log("You lose!");
     // Create overlay
     createOverlay();
@@ -55,10 +51,7 @@ export function playerLose(
     const playAgainButton = createPlayAgainButton(
       wordDiv,
       gameContainer,
-      handleLetterGuess,
-      null,
-      null,
-      attempts
+      handleLetterGuess
     );
 
     messageDiv.appendChild(message);
@@ -86,7 +79,7 @@ function createPlayAgainButton(wordDiv, gameContainer, handleLetterGuess) {
   playAgainButton.className = "game__button--small";
   playAgainButton.addEventListener("click", () => {
     playAgainButton.remove();
-    resetGame(wordDiv, gameContainer, handleLetterGuess, null, null, attempts);
+    resetGame(wordDiv, gameContainer, handleLetterGuess);
   });
   return playAgainButton;
 }

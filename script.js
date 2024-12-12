@@ -8,12 +8,14 @@ import { playerLose, playerWin } from "./game-functions/messages.js";
 import { updateImage } from "./game-functions/image-mgmt.js";
 import { updateWord } from "./game-functions/word-display.js";
 
-let attempts = 0;
+export const gameState = {
+  attempts: 0,
+};
 
 // Function to handle guessed letters
 function handleLetterGuess(letter, button) {
-  console.log("Current attempts before guess: ", attempts);
-  if (attempts >= 10) {
+  console.log("Current attempts before guess: ", gameState.attempts);
+  if (gameState.attempts >= 10) {
     console.warn("Game over. No further guesses allowed.");
     return;
   }
@@ -33,21 +35,14 @@ function handleLetterGuess(letter, button) {
       selectedWordArrUnderscores,
       wordDiv,
       gameContainer,
-      handleLetterGuess,
-      attempts
+      handleLetterGuess
     ); // Checks if the player has won
   } else {
     // Incorrect guess
     console.log(`Incorrect guess: ${letter}`);
-    attempts++;
-    updateImage(attempts); // Updates hangman image
-    playerLose(
-      attempts,
-      selectedWord,
-      wordDiv,
-      gameContainer,
-      handleLetterGuess
-    ); // Check if the player has lost
+    gameState.attempts++;
+    updateImage(gameState.attempts); // Updates hangman image
+    playerLose(selectedWord, wordDiv, gameContainer, handleLetterGuess); // Check if the player has lost
   }
 }
 // Getting classes and IDs from HTML
@@ -69,7 +64,6 @@ playButton.addEventListener("click", (event) => {
     "Passing handleLetterGuess to initialiseGame:",
     handleLetterGuess
   );
-
   //Hides the play button after clicking on it
   playButton.classList.add("hidden");
   console.log("Play button hidden");
