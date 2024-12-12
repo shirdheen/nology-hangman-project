@@ -5,7 +5,8 @@ export function playerWin(
   selectedWordArrUnderscores,
   wordDiv,
   gameContainer,
-  handleLetterGuess
+  handleLetterGuess,
+  attempts
 ) {
   if (!selectedWordArrUnderscores.includes("_")) {
     console.log("You win!");
@@ -19,7 +20,10 @@ export function playerWin(
     const playAgainButton = createPlayAgainButton(
       wordDiv,
       gameContainer,
-      handleLetterGuess
+      handleLetterGuess,
+      null,
+      null,
+      attempts
     );
 
     messageDiv.appendChild(message);
@@ -51,7 +55,10 @@ export function playerLose(
     const playAgainButton = createPlayAgainButton(
       wordDiv,
       gameContainer,
-      handleLetterGuess
+      handleLetterGuess,
+      null,
+      null,
+      attempts
     );
 
     messageDiv.appendChild(message);
@@ -79,7 +86,7 @@ function createPlayAgainButton(wordDiv, gameContainer, handleLetterGuess) {
   playAgainButton.className = "game__button--small";
   playAgainButton.addEventListener("click", () => {
     playAgainButton.remove();
-    resetGame(wordDiv, gameContainer, handleLetterGuess);
+    resetGame(wordDiv, gameContainer, handleLetterGuess, null, null, attempts);
   });
   return playAgainButton;
 }

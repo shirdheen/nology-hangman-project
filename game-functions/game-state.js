@@ -6,7 +6,6 @@ import { starterImage } from "./image-mgmt.js";
 
 export function initialiseGame(wordDiv, gameContainer, handleLetterGuess) {
   console.log("Initialising game...");
-
   // Select random word
   selectRandomWord();
 
@@ -45,6 +44,10 @@ export function initialiseGame(wordDiv, gameContainer, handleLetterGuess) {
     alphButton.className = "game__button--alphabet";
     alphButton.addEventListener("click", () => {
       console.log(`You clicked: ${letter}`);
+      console.log(
+        "Invoking handleLetterGuess with letter and button:",
+        handleLetterGuess
+      );
       handleLetterGuess(letter, alphButton);
     });
     alphabetContainer.appendChild(alphButton);
@@ -71,7 +74,9 @@ export function resetGame(
     messageDiv.remove();
   }
   // Reset game
+  console.log("Resetting attempts...");
   attempts = 0;
+  console.log("Attempts reset to:", attempts);
   // Initialise game again
   initialiseGame(wordDiv, gameContainer, handleLetterGuess);
   console.log("Game has been reset");

@@ -8,7 +8,8 @@ export function starterImage(gameContainer) {
 
 // Function to update the hangman image
 export function updateImage(attempts) {
-  if (isNaN(attempts)) {
+  const maxAttempts = 10;
+  if (isNaN(attempts) || attempts > maxAttempts) {
     console.error("Invalid attempts value:", attempts);
     return;
   }
